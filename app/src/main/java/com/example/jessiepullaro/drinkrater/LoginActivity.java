@@ -70,13 +70,13 @@ public class LoginActivity extends AppCompatActivity {
                 String passHash = password.getText().toString(); //TODO pass password into hasher
 
 
-                if (username.getText().toString().matches(".*[^a-zA-Z0-0]")) {
+                if (username.getText().toString().matches("[A-Za-z0-9]+")) {
                     User user = new User(username.getText().toString(), passHash);
                     userDBHelper.addUser(user);
                 }
                 else{
                     Context context = getApplicationContext();
-                    CharSequence text = "Username must only be alphanumeric";
+                    CharSequence text = "Username must userDBHelper.addUser(user); only be alphanumeric";
                     int duration = Toast.LENGTH_LONG;
 
                     Toast toast = Toast.makeText(context, text, duration);
