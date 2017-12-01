@@ -28,5 +28,13 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        reviewList = (ExpandableListView) findViewById(R.id.expandable_listview);
+        fab = (FloatingActionButton) findViewById(R.id.myFAB);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 }
