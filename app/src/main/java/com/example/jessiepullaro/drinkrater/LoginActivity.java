@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     DrinkDBHelper drinkDBHelper;
     RatingDBHelper ratingDBHelper;
 
-    private EditText email, password;
+    private EditText username, password;
     private Button signInButton, registerButton;
 
     @Override
@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        email = (EditText) findViewById(R.id.editText);
+        username = (EditText) findViewById(R.id.editText);
         password = (EditText) findViewById(R.id.editText2);
 
         userDBHelper = new UserDBHelper(this);
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void signIn(View view){
         try {
-            User user = userDBHelper.getUser(email.getText().toString());
+            User user = userDBHelper.getUser(username.getText().toString());
             if (user.getPassHash() == password.getText().toString()) {
                 Intent i = new Intent(LoginActivity.this, MenuActivity.class);
                 startActivity(i);
@@ -68,9 +68,20 @@ public class LoginActivity extends AppCompatActivity {
                     password.getText().toString().length() >= 8 &&
                     password.getText().toString().matches("^.*[^a-zA-Z0-9 ].*$")) {
                 String passHash = password.getText().toString(); //TODO pass password into hasher
-                User user = new User(email.getText().toString(), passHash);
 
-                userDBHelper.addUser(user);
+
+                if (username.getText().toString().matches(".*[^a-zA-Z0-0]")) {
+                    User user = new User(username.getText().toString(), passHash);
+                    userDBHelper.addUser(user);
+                }
+                else{
+                    Context context = getApplicationContext();
+                    CharSequence text = "Username must only be alphanumeric";
+                    int duration = Toast.LENGTH_LONG;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
             }
             else {
                 Context context = getApplicationContext();

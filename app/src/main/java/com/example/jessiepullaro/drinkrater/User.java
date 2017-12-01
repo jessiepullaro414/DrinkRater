@@ -5,19 +5,19 @@ package com.example.jessiepullaro.drinkrater;
  */
 
 public class User {
-    private String email, passHash;
+    private String username, passHash;
 
-    public User (String email, String passHash){
-        this.email = email;
+    public User (String username, String passHash){
+        this.username = username;
         this.passHash = passHash;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String email) {
+        this.username = email;
     }
 
     public String getPassHash() {

@@ -21,7 +21,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     // user table column names
     private static final String KEY_ID = "_id";
-    private static final String KEY_EMAIL = "email";
+    private static final String KEY_USERNAME = "email";
     private static final String KEY_PASSWORD = "password";
 
     // constructor
@@ -34,7 +34,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db){
         String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + KEY_EMAIL + " TEXT UNIQUE, "
+                + KEY_USERNAME + " TEXT UNIQUE, "
                 + KEY_PASSWORD + " TEXT)";
 
         db.execSQL(CREATE_USER_TABLE);
@@ -57,8 +57,8 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String insertStm = "INSERT INTO " + TABLE_NAME + "("+ KEY_EMAIL + ", " + KEY_PASSWORD + ") VALUES('" +
-                user.getEmail() + "', '" + user.getPassHash() + "')";
+        String insertStm = "INSERT INTO " + TABLE_NAME + "("+ KEY_USERNAME + ", " + KEY_PASSWORD + ") VALUES('" +
+                user.getUsername() + "', '" + user.getPassHash() + "')";
 
         db.execSQL(insertStm);
 
@@ -69,7 +69,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
     public User getUser(String email){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String queryStm = "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_EMAIL + " = " + email;
+        String queryStm = "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_USERNAME + " = " + email;
 
         Cursor c = db.rawQuery(queryStm, null);
 
