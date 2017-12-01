@@ -39,27 +39,15 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public byte[] hashPassword( final char[] password) {
-        int iterations = 20*1000;
-        int keyLength = 512;
-
-        try {
-            byte[] salt =  SecureRandom.getInstance("SHA1PRNG").generateSeed(32);
-            SecretKeyFactory skf = SecretKeyFactory.getInstance( "PBKDF2WithHmacSHA512" );
-            PBEKeySpec spec = new PBEKeySpec( password, salt, iterations, keyLength );
-            SecretKey key = skf.generateSecret( spec );
-            byte[] res = key.getEncoded( );
-            return res;
-
-        } catch( NoSuchAlgorithmException | InvalidKeySpecException e ) {
-            throw new RuntimeException( e );
-        }
+    public String hashPassword( String password) {
+        //TODO hasher slinging slasher
+        return "later";
     }
 
     public void signIn(View view){
         try {
             User user = userDBHelper.getUser(email.getText().toString());
-            if (user.getPassHash() == new String(hashPassword(password.getText().toString().toCharArray()))) {
+            if (user.getPassHash() == password.getText().toString()) {
                 Intent i = new Intent(LoginActivity.this, MenuActivity.class);
                 startActivity(i);
             }
@@ -79,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             if (password.getText().toString() != null &&
                     password.getText().toString().length() >= 8 &&
                     password.getText().toString().matches("^.*[^a-zA-Z0-9 ].*$")) {
-                String passHash = new String(hashPassword(password.getText().toString().toCharArray()));
+                String passHash = password.getText().toString(); //TODO pass password into hasher
                 User user = new User(email.getText().toString(), passHash);
 
                 userDBHelper.addUser(user);
