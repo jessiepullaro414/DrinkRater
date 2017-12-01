@@ -59,7 +59,7 @@ public class DrinkDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String insertStm = "INSERT INTO " + TABLE_NAME + " VALUES('" +
+        String insertStm = "INSERT INTO " + TABLE_NAME + "(" + KEY_DRINKTYPE + ", " + KEY_DRINKNAME + ", " + KEY_ABV + ") VALUES('" +
                 drink.getDrinkType() + "', '" + drink.getDrinkName() + "', '" + drink.getABV() + "')";
 
         db.execSQL(insertStm);

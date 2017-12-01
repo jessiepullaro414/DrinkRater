@@ -56,7 +56,7 @@ public class RatingDBHelper extends SQLiteOpenHelper{
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String insertStm = "INSERT INTO " + TABLE_NAME + " VALUES('" +
+        String insertStm = "INSERT INTO " + TABLE_NAME + "(" + KEY_RATING + ", " + KEY_DESCRIPTION + ") VALUES('" +
                 rating.getRating() + "', '" + rating.getDescription() + "')";
 
         db.execSQL(insertStm);
