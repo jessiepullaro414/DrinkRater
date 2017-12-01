@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class UserDBHelper extends SQLiteOpenHelper{
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 5;
 
     // db name
     private static final String DATABASE_NAME = "userManager";
@@ -57,7 +57,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String insertStm = "INSERT INTO " + TABLE_NAME + " VALUES('" +
+        String insertStm = "INSERT INTO " + TABLE_NAME + "("+ KEY_EMAIL + ", " + KEY_PASSWORD + ") VALUES('" +
                 user.getEmail() + "', '" + user.getPassHash() + "')";
 
         db.execSQL(insertStm);
