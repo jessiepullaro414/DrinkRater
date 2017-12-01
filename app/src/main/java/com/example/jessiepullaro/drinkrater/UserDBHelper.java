@@ -21,7 +21,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     // user table column names
     private static final String KEY_ID = "_id";
-    private static final String KEY_USERNAME = "email";
+    private static final String KEY_USERNAME = "username";
     private static final String KEY_PASSWORD = "password";
 
     // constructor
@@ -75,7 +75,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
         if (c != null) c.moveToFirst();
 
-        User user = new User(c.getString(0), c.getString(1));
+        User user = new User(c.getString(1), c.getString(2));
 
         db.close(); // closing db connection
 
