@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:onClick="signIn"
         android:text="@string/signin" />
 
     <Button
@@ -43,5 +44,6 @@
         android:layout_alignEnd="@+id/signin_btn"
         android:layout_below="@+id/signin_btn"
         android:layout_marginTop="33dp"
+        android:onClick="register"
         android:text="@string/register" />
 </RelativeLayout>

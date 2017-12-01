@@ -33,7 +33,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db){
         String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
-                + KEY_ID + " INTEGER PRIMARY KEY, "
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_EMAIL + " TEXT UNIQUE, "
                 + KEY_PASSWORD + " TEXT)";
 

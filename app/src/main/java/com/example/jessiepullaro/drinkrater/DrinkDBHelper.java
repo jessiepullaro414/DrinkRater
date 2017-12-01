@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DrinkDBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
 
     // db name
     private static final String DATABASE_NAME = "drinkManager";
@@ -34,7 +34,7 @@ public class DrinkDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db){
         String CREATE_DRINK_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
-                + KEY_ID + " INTEGER PRIMARY KEY, "
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_DRINKTYPE + " TEXT, "
                 + KEY_DRINKNAME + " TEXT UNIQUE, "
                 + KEY_ABV + " REAL)";

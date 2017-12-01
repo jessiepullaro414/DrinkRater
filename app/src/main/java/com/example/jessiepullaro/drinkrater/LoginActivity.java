@@ -1,6 +1,7 @@
 package com.example.jessiepullaro.drinkrater;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -58,9 +59,11 @@ public class LoginActivity extends AppCompatActivity {
     public void signIn(View view){
         try {
             User user = userDBHelper.getUser(email.getText().toString());
-            if (user.getPassHash() == new String(hashPassword(password.getText().toString().toCharArray())))
-                //TODO go to other activity
-                ;
+            if (user.getPassHash() == new String(hashPassword(password.getText().toString().toCharArray()))) {
+                Intent i = new Intent(LoginActivity.this, MenuActivity.class);
+                startActivity(i);
+            }
+
         }catch (Error e){
             Context context = getApplicationContext();
             CharSequence text = "Authentication FAILED!";

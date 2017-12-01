@@ -32,7 +32,7 @@ public class RatingDBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db){
         String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
-                + KEY_ID + " INTEGER PRIMARY KEY, "
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_RATING + " INTEGER, "
                 + KEY_DESCRIPTION + " TEXT)";
 
