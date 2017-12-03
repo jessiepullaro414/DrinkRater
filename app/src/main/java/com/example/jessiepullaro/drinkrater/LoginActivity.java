@@ -66,8 +66,8 @@ public class LoginActivity extends AppCompatActivity {
         try {
             if (password.getText().toString() != null &&
                     password.getText().toString().length() >= 8 &&
-                    password.getText().toString().matches("^.*[^a-zA-Z0-9 ].*$")) {
-                String passHash = password.getText().toString(); //TODO pass password into hasher
+                    password.getText().toString().matches("[A-Za-z0-9]+")) {
+                String passHash = password.getText().toString(); //TODO pass password into hasher ("^.*[^a-zA-Z0-9 ].*$" use to accept symbols)
 
 
                 if (username.getText().toString().matches("[A-Za-z0-9]+")) {
@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                 Context context = getApplicationContext();
                 CharSequence text = "Password cannot be null.\n" +
                         "Password must be at least 8 characters.\n" +
-                        "Password must contain at least 1 symbol and 1 number.\n" +
+                        "Password must contain at least 1 number.\n" +
                         "Password must contain at lower and uppercase letters.";
                 int duration = Toast.LENGTH_LONG;
 
