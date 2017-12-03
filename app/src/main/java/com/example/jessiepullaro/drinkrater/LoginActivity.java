@@ -45,21 +45,23 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signIn(View view){
-        try {
-            User user = userDBHelper.getUser(username.getText().toString());
-            if (user.getPassHash() == password.getText().toString()) {
-                Intent i = new Intent(LoginActivity.this, MenuActivity.class);
-                startActivity(i);
-            }
-
-        }catch (Error e){
-            Context context = getApplicationContext();
-            CharSequence text = "Authentication FAILED!";
-            int duration = Toast.LENGTH_LONG;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        }
+        Intent i = new Intent(LoginActivity.this, MenuActivity.class);
+        startActivity(i);
+//        try {
+//            User user = userDBHelper.getUser(username.getText().toString());
+//            if (user.getPassHash() == password.getText().toString()) {
+//                Intent i = new Intent(LoginActivity.this, MenuActivity.class);
+//                startActivity(i);
+//            }
+//
+//        }catch (Error e){
+//            Context context = getApplicationContext();
+//            CharSequence text = "Authentication FAILED!";
+//            int duration = Toast.LENGTH_LONG;
+//
+//            Toast toast = Toast.makeText(context, text, duration);
+//            toast.show();
+//        }
     }
 
     public void register(View view){

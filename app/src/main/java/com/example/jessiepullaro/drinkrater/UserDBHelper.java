@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class UserDBHelper extends SQLiteOpenHelper{
 
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 17;
 
     // db name
     private static final String DATABASE_NAME = "userManager";
@@ -57,7 +57,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String insertStm = "INSERT INTO " + TABLE_NAME + "("+ KEY_USERNAME + ", " + KEY_PASSWORD + ") VALUES('" +
+        String insertStm = "INSERT INTO " + TABLE_NAME + " ("+ KEY_USERNAME + ", " + KEY_PASSWORD + ") VALUES('" +
                 user.getUsername() + "', '" + user.getPassHash() + "')";
 
         db.execSQL(insertStm);
@@ -65,17 +65,19 @@ public class UserDBHelper extends SQLiteOpenHelper{
         db.close(); // closing db connection
     }
 
-    // getting single user record with specific email
-    public User getUser(String email){
+    // getting single user record with specific username
+    public User getUser(String username){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String queryStm = "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_USERNAME + " = " + email;
+        String queryStm = "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_USERNAME + " = '" + username +"'";
 
         Cursor c = db.rawQuery(queryStm, null);
 
         if (c != null) c.moveToFirst();
 
         User user = new User(c.getString(1), c.getString(2));
+
+        c.close();
 
         db.close(); // closing db connection
 

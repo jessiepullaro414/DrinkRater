@@ -1,5 +1,7 @@
 package com.example.jessiepullaro.drinkrater;
 
+import android.util.Log;
+
 /**
  * Created by jessie on 11/30/17.
  */
@@ -20,9 +22,7 @@ public class User {
         this.username = email;
     }
 
-    public String getPassHash() {
-        return passHash;
-    }
+    public String getPassHash() { return passHash; }
 
     public void setPassHash(String passHash) {
         this.passHash = passHash;

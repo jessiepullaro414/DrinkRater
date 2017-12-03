@@ -4,4 +4,9 @@
     <string name="password">Password</string>
     <string name="signin">Sign-In</string>
     <string name="register">Register</string>
+    <string name="drinkname">Drink Name</string>
+    <string name="review">Review</string>
+    <string name="submit">Submit</string>
+    <string name="one">1</string>
+    <string name="ten">10</string>
 </resources>

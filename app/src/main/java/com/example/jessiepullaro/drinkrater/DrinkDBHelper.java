@@ -123,6 +123,12 @@ public class DrinkDBHelper extends SQLiteOpenHelper {
         return drink;
     }
 
+    public Drink getDrinks(){
+        //TODO return all the drink names as and Array
+        Drink drink = new Drink ("1","1", 1.0);
+        return drink;
+    }
+
 
     // deleting single drink record (not needed at the moment)
     //public void deleteUser(Drink drink){

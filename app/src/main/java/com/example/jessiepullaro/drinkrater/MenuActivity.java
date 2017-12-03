@@ -1,6 +1,7 @@
 package com.example.jessiepullaro.drinkrater;
 
 import android.app.ExpandableListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -36,5 +37,13 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+    }
+
+    public void reviewMove (View view){
+
+        Intent i = new Intent(MenuActivity.this, RateActivity.class);
+        startActivity(i);
+
     }
 }

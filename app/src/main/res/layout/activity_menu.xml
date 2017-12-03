@@ -11,16 +11,16 @@
         android:layout_height="match_parent" />
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_margin="10dp"
         android:id="@+id/myFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:borderWidth="0dp"
-        app:elevation="8dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        app:fabSize="normal"
+        android:layout_margin="10dp"
+        android:onClick="reviewMove"
         android:src="@drawable/ic_plus_sign"
-        />
+        app:borderWidth="0dp"
+        app:elevation="8dp"
+        app:fabSize="normal" />
 
 </RelativeLayout>
