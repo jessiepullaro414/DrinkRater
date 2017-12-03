@@ -40,6 +40,44 @@ public class DrinkDBHelper extends SQLiteOpenHelper {
                 + KEY_ABV + " REAL)";
 
         db.execSQL(CREATE_DRINK_TABLE);
+
+        // initial list of drinks
+        String INIT_DRINK_LIST = "INSERT INTO " + TABLE_NAME + " (" +
+                KEY_DRINKTYPE + ", " + KEY_DRINKNAME + ", " + KEY_ABV + ") VALUES " +
+                "('Irish Whiskey', 'Jameson Original', .40)" +
+                "('Irish Whiskey', 'Jameson Gold Reserve Irish Whiskey', .40)" +
+                "('Irish Whiskey', 'Redbreast 12 Year Old Cask Strength Irish Whiskey', .586)" +
+                "('Bourbon Whiskey', 'Hillrock Solera Aged Bourbon Whiskey', .463)" +
+                "('Scotch Whiskey', 'Glenfiddich 12 YEAR OLD', .40)" +
+                "('Scotch Whiskey', 'Glenfiddich 50 Year Old', .461)" +
+                "('Scotch Whiskey', 'The Macallan Fine Oak 10 Years Old', .40)" +
+                "('Anejo Tequila', 'Padre Azul Tequila Añejo', .40)" +
+                "('Anejo Tequila', 'Patron Anejo Tequila', .40)" +
+                "('Silver Tequila', 'Sauza Blue Tequila Silver', .40)" +
+                "('Gold Tequila', 'Mexican Sunrise Gold Tequila', .40)" +
+                "('Vodka', 'Pinnacle Vodka', .40)" +
+                "('Vodka', 'Crystal Head Vodka', .40)" +
+                "('Vodka', 'Svedka Vodka', .40)" +
+                "('Gin', 'Bombay Gin', .43)" +
+                "('Gin', 'Seagram's Gin', .40)" +
+                "('Gin', 'Tanqueray Gin', .473)" +
+                "('Aguardiente Rum', 'Aguardiente Cristal Rum', .30)" +
+                "('Light Rum', 'Black Coral White Rum', .40)" +
+                "('Flavored Rum', 'Bacardi Grapefruit Rum', .35)" +
+                "('Brandy', 'Black Watch Vsop Brandy', .40)" +
+                "('Cognac', 'Hennessy Vs Cognac', .40)" +
+                "('Cognac', 'Remy Martin 1738 Accord Royal Cognac', .40)" +
+                "('Imperial Stout', 'Goose Island Beer Co. Bourbon County Brand Coffee Stout', .129)" +
+                "('American IPA', 'Tree House Brewing Company Julius', .068)" +
+                "('Russian Imperial Stout', 'Firestone Walker Brewing Co. Parabola', .14)" +
+                "('American Pale Ale', 'Trillium Brewing Company Double Dry Hopped Fort Point Pale Ale', .066)" +
+                "('Cabernet Sauvignon', 'Belguardo Maremma Toscana 2013', .146)" +
+                "('Pinot Noir', 'Greywacke Pinot Noir 2014', .14)" +
+                "('Zinfandel', 'High Valley Vineyards Zinfandel 2015', .151)" +
+                "('Chardonnay', 'Rombauer Chardonnay 2016', .145)";
+
+        db.execSQL(INIT_DRINK_LIST);
+
     }
 
     // upgrading database
@@ -59,7 +97,7 @@ public class DrinkDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String insertStm = "INSERT INTO " + TABLE_NAME + "(" + KEY_DRINKTYPE + ", " + KEY_DRINKNAME + ", " + KEY_ABV + ") VALUES('" +
+        String insertStm = "INSERT INTO " + TABLE_NAME + " (" + KEY_DRINKTYPE + ", " + KEY_DRINKNAME + ", " + KEY_ABV + ") VALUES('" +
                 drink.getDrinkType() + "', '" + drink.getDrinkName() + "', '" + drink.getABV() + "')";
 
         db.execSQL(insertStm);
