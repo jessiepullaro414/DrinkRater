@@ -141,7 +141,6 @@ public class DrinkDBHelper extends SQLiteOpenHelper {
                 c.moveToFirst();
                 for(int x = 0; x < c.getCount(); x++){
                     drinkList.add(new Drink(c.getString(0), c.getString(1), c.getDouble(2)));
-                    c.moveToFirst();
                 }
             }
         }catch (Error e){
