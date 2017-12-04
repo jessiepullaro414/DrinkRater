@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 /**
  * Created by jessie on 11/30/17.
  */
@@ -123,10 +125,32 @@ public class DrinkDBHelper extends SQLiteOpenHelper {
         return drink;
     }
 
-    public Drink getDrinks(){
-        //TODO return all the drink names as and Array
-        Drink drink = new Drink ("1","1", 1.0);
-        return drink;
+    public ArrayList<Drink> getDrinks(){
+        ArrayList<Drink> drinkList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String queryStm = "SELECT * FROM " + TABLE_NAME;
+
+        Cursor c = db.rawQuery(queryStm, null);
+
+        try{
+            if (c != null){
+                c.moveToFirst();
+                for(int x = 0; x < c.getCount(); x++){
+                    drinkList.add(new Drink(c.getString(0), c.getString(1), c.getDouble(2)));
+                }
+            }
+        }catch (Error e){
+            // nothing
+        }
+
+        Drink drink = new Drink(c.getString(0), c.getString(1), c.getDouble(2));
+
+        db.close(); // closing db connection
+
+        // return list of drinks
+        return drinkList;
     }
 
 
