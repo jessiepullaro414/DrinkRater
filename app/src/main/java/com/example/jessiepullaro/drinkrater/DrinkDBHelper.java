@@ -146,8 +146,6 @@ public class DrinkDBHelper extends SQLiteOpenHelper {
             // nothing
         }
 
-        Drink drink = new Drink(c.getString(0), c.getString(1), c.getDouble(2));
-
         db.close(); // closing db connection
 
         // return list of drinks

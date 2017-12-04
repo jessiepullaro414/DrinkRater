@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 /**
  * Created by jessie on 11/30/17.
  */
@@ -90,6 +92,34 @@ public class RatingDBHelper extends SQLiteOpenHelper{
 
         // return contact
         return rating;
+    }
+
+    // getting all the ratings associated with a drink's name storing them in an ArrayList of ratings
+    public ArrayList<Rating> getRatings(String drinkName){
+        ArrayList<Rating> ratingList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String queryStm = "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_DRINKNAME + " = '" + drinkName + "'";
+
+        Cursor c = db.rawQuery(queryStm, null);
+
+        try{
+            if (c != null){
+                c.moveToFirst();
+                for(int x = 0; x < c.getCount(); x++){
+                    ratingList.add(new Rating(c.getString(0), c.getString(1), c.getInt(2), c.getString(3)));
+                    c.moveToNext();
+                }
+            }
+        }catch (Error e){
+            // nothing
+        }
+
+        db.close(); // closing db connection
+
+        // return list of ratings
+        return ratingList;
     }
 
     // deleting single rating record (not needed at the moment)
