@@ -6,11 +6,29 @@ package com.example.jessiepullaro.drinkrater;
 
 public class Rating {
     private int rating;
-    private String description;
+    private String drinkName, username, description;
 
-    public Rating(int rating, String description) {
+    public Rating(String drinkName, String username, int rating, String description) {
+        this.drinkName = drinkName;
+        this.username = username;
         this.rating = rating;
         this.description = description;
+    }
+
+    public String getDrinkName() {
+        return drinkName;
+    }
+
+    public void setDrinkName(String drinkName) {
+        this.drinkName = drinkName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getRating() {

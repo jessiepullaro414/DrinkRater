@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText username, password;
     private Button signInButton, registerButton;
+    private String loggedInUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 //        try {
 //            User user = userDBHelper.getUser(username.getText().toString());
 //            if (user.getPassHash() == password.getText().toString()) {
+//                loggedInUser = username.getText().toString();
 //                Intent i = new Intent(LoginActivity.this, MenuActivity.class);
 //                startActivity(i);
 //            }
@@ -99,5 +101,9 @@ public class LoginActivity extends AppCompatActivity {
         } catch (Error e){
 
         }
+    }
+
+    public String getLoggedInUser(){
+        return loggedInUser;
     }
 }

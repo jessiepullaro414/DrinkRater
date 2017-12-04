@@ -14,7 +14,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
     private static final int DATABASE_VERSION = 17;
 
     // db name
-    private static final String DATABASE_NAME = "userManager";
+    private static final String DATABASE_NAME = "drinkManager";
 
     // table name
     private static final String TABLE_NAME = "userTable";
