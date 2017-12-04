@@ -9,4 +9,20 @@
     <string name="submit">Submit</string>
     <string name="one">1</string>
     <string name="ten">10</string>
+    <string name="typeOfDrink">Type of Drink</string>
+    <string name="abv">Alcohol by Volume</string>
+    <string name="addDrink">Add a New Drink</string>
+
+
+    <string-array name="drinks_array">
+        <item>Jameson Original</item>
+        <item>Redbreast 12 Year Old Cask Strength Irish Whiskey</item>
+        <item>Glenfiddich 12 YEAR OLD</item>
+        <item>Patron Anejo Tequila</item>
+        <item>Tanqueray Gin</item>
+        <item>Rombauer Chardonnay 2016</item>
+        <item>Hennessy Vs Cognac</item>
+        <item>Tree House Brewing Company Julius</item>
+    </string-array>
+
 </resources>

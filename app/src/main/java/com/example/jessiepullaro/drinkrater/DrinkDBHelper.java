@@ -1,9 +1,11 @@
 package com.example.jessiepullaro.drinkrater;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 
 public class DrinkDBHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     // db name
     private static final String DATABASE_NAME = "drinkManager";
@@ -139,13 +141,13 @@ public class DrinkDBHelper extends SQLiteOpenHelper {
                 c.moveToFirst();
                 for(int x = 0; x < c.getCount(); x++){
                     drinkList.add(new Drink(c.getString(0), c.getString(1), c.getDouble(2)));
+                    c.moveToFirst();
                 }
             }
         }catch (Error e){
             // nothing
+            Log.d("getDrink() failed", "The getDrink() method failed");
         }
-
-        Drink drink = new Drink(c.getString(0), c.getString(1), c.getDouble(2));
 
         db.close(); // closing db connection
 

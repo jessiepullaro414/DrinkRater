@@ -40,7 +40,7 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
-    public void reviewMove (View view){
+    public void drinkMove (View view){
 
         Intent i = new Intent(MenuActivity.this, RateActivity.class);
         startActivity(i);

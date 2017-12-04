@@ -43,9 +43,20 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button4"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_marginEnd="37dp"
+        android:layout_toStartOf="@+id/textView6"
+        android:onClick="toDrinks"
+        android:text="@string/addDrink" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="20dp"
+        android:layout_toEndOf="@+id/textView2"
         android:onClick="backToMenu"
         android:text="@string/submit" />
 
