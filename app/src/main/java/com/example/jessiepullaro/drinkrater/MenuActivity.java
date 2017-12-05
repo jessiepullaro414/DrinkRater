@@ -6,7 +6,12 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jessiepullaro on 11/30/17.
@@ -14,7 +19,7 @@ import android.widget.ExpandableListView;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private ExpandableListView reviewList;
+    private ListView reviewList;
     private FloatingActionButton fab;
 //    FloatingActionButton myFab = (FloatingActionButton)  myView.findViewById(R.id.myFAB);
 //    myFab.setOnClickListener(new View.OnClickListener() {
@@ -29,8 +34,23 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        reviewList = (ExpandableListView) findViewById(R.id.expandable_listview);
+        reviewList = (ListView) findViewById(R.id.list_view);
         fab = (FloatingActionButton) findViewById(R.id.myFAB);
+
+        List<String> array_list = new ArrayList<String>();
+        array_list.add("Jameson Original");
+        array_list.add("Bourbon County Brand Coffee Stout");
+
+        // This is the array adapter, it takes the context of the activity as a
+        // first parameter, the type of list view as a second parameter and your
+        // array as a third parameter.
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                array_list );
+
+        reviewList.setAdapter(arrayAdapter);
+
 
     }
 

@@ -1,5 +1,6 @@
 package com.example.jessiepullaro.drinkrater;
 
+import android.bluetooth.BluetoothClass;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ public class RateActivity extends AppCompatActivity {
     private SeekBar rateSetter;
     private Spinner spinner;
     private int rate;
+    private DrinkDBHelper addDrink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class RateActivity extends AppCompatActivity {
         rateSetter = (SeekBar) findViewById(R.id.seekBar3);
         rateSetter.setOnSeekBarChangeListener(seekBar1);
         spinner = (Spinner) findViewById(R.id.spinner);
+        addDrink = new DrinkDBHelper(this);
         initAdapter();
 
 
@@ -37,6 +40,7 @@ public class RateActivity extends AppCompatActivity {
 
     private void initAdapter(){
         // Create an ArrayAdapter using the string array and a default spinner layout
+        //addDrink.getDrinks();
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.drinks_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
